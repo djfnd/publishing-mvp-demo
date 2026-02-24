@@ -468,14 +468,22 @@ export default function App() {
       });
     };
 
+    const parseSplit = (value) => {
+      if (!value) return 0;
+      // Handle both . and , as decimal separators
+      const normalized = String(value).replace(',', '.');
+      return parseFloat(normalized) || 0;
+    };
+
     const totalSplit = () => {
-      let total = parseInt(captureFormData.ownershipSplit) || 0;
+      let total = parseSplit(captureFormData.ownershipSplit);
       if (captureFormData.hasCoWriters) {
         for (let i = 0; i < captureFormData.coWriterCount; i++) {
-          total += parseInt(captureFormData.coWriters[i].split) || 0;
+          total += parseSplit(captureFormData.coWriters[i].split);
         }
       }
-      return total;
+      // Round to 3 decimal places to avoid floating point issues
+      return Math.round(total * 1000) / 1000;
     };
 
     const saveAndContinue = () => {
@@ -567,13 +575,21 @@ export default function App() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Your ownership share</label>
                 <div className="flex items-center gap-3">
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="decimal"
                     value={captureFormData.ownershipSplit}
-                    onChange={(e) => updateCaptureField('ownershipSplit', Math.min(100, Math.max(0, e.target.value)))}
+                    onChange={(e) => {
+                      // Allow digits, single decimal point or comma, up to 3 decimal places
+                      const value = e.target.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1');
+                      const normalized = value.replace(',', '.');
+                      const parts = normalized.split('.');
+                      if (parts[1] && parts[1].length > 3) return; // Max 3 decimal places
+                      const num = parseFloat(normalized);
+                      if (normalized && !isNaN(num) && num > 100) return; // Max 100
+                      updateCaptureField('ownershipSplit', value);
+                    }}
                     className="w-24 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent text-center text-xl font-medium"
                     placeholder="100"
-                    min="1"
-                    max="100"
                   />
                   <span className="text-xl text-gray-500">%</span>
                 </div>
@@ -591,7 +607,8 @@ export default function App() {
           );
 
         case 1:
-          const isSoleWriterWithWrongSplit = captureFormData.ownershipSplit !== '100' && captureFormData.ownershipSplit !== 100;
+          const normalizedSplit = String(captureFormData.ownershipSplit).replace(',', '.');
+          const isSoleWriterWithWrongSplit = parseFloat(normalizedSplit) !== 100;
           
           const clearCoWritersAndContinue = () => {
             updateCaptureField('hasCoWriters', false);
@@ -727,9 +744,18 @@ export default function App() {
                         </div>
                         <div className="flex items-center gap-1">
                           <input
-                            type="number"
+                            type="text"
+                            inputMode="decimal"
                             value={captureFormData.coWriters[i].split}
-                            onChange={(e) => updateCoWriter(i, 'split', e.target.value)}
+                            onChange={(e) => {
+                              const value = e.target.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1');
+                              const normalized = value.replace(',', '.');
+                              const parts = normalized.split('.');
+                              if (parts[1] && parts[1].length > 3) return;
+                              const num = parseFloat(normalized);
+                              if (normalized && !isNaN(num) && num > 100) return;
+                              updateCoWriter(i, 'split', value);
+                            }}
                             className="w-full p-2 border border-gray-300 rounded-lg text-sm"
                             placeholder="Split"
                           />

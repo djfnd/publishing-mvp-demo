@@ -167,7 +167,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-lg w-full">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-500 mb-4">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
@@ -245,7 +245,7 @@ export default function App() {
                   value="self"
                   checked={profile.publisherType === 'self'}
                   onChange={(e) => updateProfile('publisherType', e.target.value)}
-                  className="text-pink-600"
+                  className="text-slate-700"
                 />
                 <div>
                   <div className="font-medium text-gray-900">Self-published</div>
@@ -259,7 +259,7 @@ export default function App() {
                   value="external"
                   checked={profile.publisherType === 'external'}
                   onChange={(e) => updateProfile('publisherType', e.target.value)}
-                  className="text-pink-600"
+                  className="text-slate-700"
                 />
                 <div>
                   <div className="font-medium text-gray-900">External publisher</div>
@@ -316,7 +316,7 @@ export default function App() {
           <button
             onClick={() => setScreen(SCREENS.RELEASE_VIEW)}
             disabled={!isProfileComplete()}
-            className="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+            className="w-full py-3 px-4 bg-slate-700 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-6"
           >
             Continue to Release
           </button>
@@ -331,7 +331,7 @@ export default function App() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center text-white font-bold">
+            <div className="w-12 h-12 rounded-full bg-slate-500 flex items-center justify-center text-white font-bold">
               {profile.songwriterName.charAt(0)}
             </div>
             <div>
@@ -352,7 +352,7 @@ export default function App() {
           {/* Release Header */}
           <div className="bg-white border-b p-6">
             <div className="flex items-start gap-6">
-              <div className="w-32 h-32 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center">
+              <div className="w-32 h-32 bg-slate-500 rounded-xl flex items-center justify-center">
                 <svg className="w-12 h-12 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
@@ -370,23 +370,23 @@ export default function App() {
           </div>
 
           {/* Publishing Status Banner */}
-          <div className="bg-pink-50 border-b border-pink-100 px-6 py-4">
+          <div className="bg-slate-50 border-b border-slate-200 px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-medium text-pink-900">Publishing Registration</div>
-                  <div className="text-sm text-pink-600">{getCompletedCount()} of {mockRelease.tracks.length} tracks ready</div>
+                  <div className="font-medium text-slate-900">Publishing Registration</div>
+                  <div className="text-sm text-slate-700">{getCompletedCount()} of {mockRelease.tracks.length} tracks ready</div>
                 </div>
               </div>
               {getCompletedCount() > 0 && (
                 <button
                   onClick={() => setScreen(SCREENS.EXPORT_VIEW)}
-                  className="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition-colors"
+                  className="px-4 py-2 bg-slate-700 text-white rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors"
                 >
                   View & Export
                 </button>
@@ -396,15 +396,15 @@ export default function App() {
 
           {/* Bulk Action */}
           {getCompletedCount() === 0 && (
-            <div className="px-6 py-4 border-b bg-pink-50">
+            <div className="px-6 py-4 border-b bg-slate-50">
               <div className="flex items-center gap-4">
                 <div className="flex-1">
-                  <div className="font-medium text-pink-900">Same writers for all tracks?</div>
-                  <div className="text-sm text-pink-600">Save time by entering details once</div>
+                  <div className="font-medium text-slate-900">Same writers for all tracks?</div>
+                  <div className="text-sm text-slate-700">Save time by entering details once</div>
                 </div>
                 <button
                   onClick={() => startCapture(0, 'same')}
-                  className="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition-colors whitespace-nowrap"
+                  className="px-4 py-2 bg-slate-700 text-white rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors whitespace-nowrap"
                 >
                   Yes, apply to all
                 </button>
@@ -438,7 +438,7 @@ export default function App() {
                     ) : (
                       <button
                         onClick={() => startCapture(index, 'different')}
-                        className="px-3 py-1 border border-pink-300 text-pink-600 rounded-full text-sm hover:bg-pink-50 transition-colors"
+                        className="px-3 py-1 border border-slate-300 text-slate-700 rounded-full text-sm hover:bg-slate-50 transition-colors"
                       >
                         Add Publishing
                       </button>
@@ -561,7 +561,7 @@ export default function App() {
 
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center text-white font-medium">
+                  <div className="w-10 h-10 rounded-full bg-slate-500 flex items-center justify-center text-white font-medium">
                     {profile.songwriterName.charAt(0)}
                   </div>
                   <div>
@@ -803,7 +803,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => updateCaptureField('hasSamples', true)}
-                  className={`p-4 rounded-xl border-2 transition-all ${captureFormData.hasSamples ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-gray-300'}`}
+                  className={`p-4 rounded-xl border-2 transition-all ${captureFormData.hasSamples ? 'border-pink-500 bg-slate-50' : 'border-gray-200 hover:border-gray-300'}`}
                 >
                   <span className="font-medium">Yes</span>
                 </button>
@@ -867,15 +867,15 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-pink-50 rounded-xl p-4 border border-pink-200">
-                <p className="text-sm text-pink-900">
+              <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p className="text-sm text-slate-900">
                   I confirm this information is accurate and authorize the registration of {bulkMode === 'same' ? 'these compositions' : 'this composition'} with collection societies.
                 </p>
               </div>
 
               <button
                 onClick={saveAndContinue}
-                className="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all"
+                className="w-full py-3 px-4 bg-slate-700 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all"
               >
                 {bulkMode === 'same' ? `Submit All ${mockRelease.tracks.length} Tracks` : 'Submit'}
               </button>
@@ -906,7 +906,7 @@ export default function App() {
                 </button>
               </div>
               <div className="h-1 bg-gray-200 rounded-full">
-                <div className="h-1 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full transition-all" style={{ width: `${((captureStep + 1) / 5) * 100}%` }} />
+                <div className="h-1 bg-slate-700 rounded-full transition-all" style={{ width: `${((captureStep + 1) / 5) * 100}%` }} />
               </div>
             </div>
           )}
@@ -945,7 +945,7 @@ export default function App() {
               </div>
               <button
                 onClick={exportToCSV}
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all"
+                className="flex items-center gap-2 px-6 py-3 bg-slate-700 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

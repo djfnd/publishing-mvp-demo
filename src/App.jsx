@@ -164,10 +164,10 @@ export default function App() {
 
   // Render functions for each screen
   const renderProfileSetup = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-lg w-full">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 mb-4">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
@@ -183,7 +183,7 @@ export default function App() {
               type="text"
               value={profile.songwriterName}
               onChange={(e) => updateProfile('songwriterName', e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent"
               placeholder="As registered with your PRO"
             />
           </div>
@@ -194,7 +194,7 @@ export default function App() {
               <select
                 value={profile.pro}
                 onChange={(e) => updateProfile('pro', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent"
               >
                 <option value="">Select PRO...</option>
                 <option value="ASCAP">ASCAP (USA)</option>
@@ -217,7 +217,7 @@ export default function App() {
                 type="text"
                 value={profile.proMemberId}
                 onChange={(e) => updateProfile('proMemberId', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 placeholder="Optional"
               />
             </div>
@@ -229,7 +229,7 @@ export default function App() {
               type="text"
               value={profile.ipi}
               onChange={(e) => updateProfile('ipi', e.target.value.replace(/\D/g, '').slice(0, 11))}
-              className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent font-mono"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent font-mono"
               placeholder="9-11 digits (if known)"
             />
             <p className="text-xs text-gray-500 mt-1">Your IPI can be found on your PRO statement or member portal</p>
@@ -245,7 +245,7 @@ export default function App() {
                   value="self"
                   checked={profile.publisherType === 'self'}
                   onChange={(e) => updateProfile('publisherType', e.target.value)}
-                  className="text-violet-600"
+                  className="text-pink-600"
                 />
                 <div>
                   <div className="font-medium text-gray-900">Self-published</div>
@@ -259,7 +259,7 @@ export default function App() {
                   value="external"
                   checked={profile.publisherType === 'external'}
                   onChange={(e) => updateProfile('publisherType', e.target.value)}
-                  className="text-violet-600"
+                  className="text-pink-600"
                 />
                 <div>
                   <div className="font-medium text-gray-900">External publisher</div>
@@ -276,7 +276,7 @@ export default function App() {
                 type="text"
                 value={profile.publisherName}
                 onChange={(e) => updateProfile('publisherName', e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 placeholder="Optional - defaults to your name"
               />
             </div>
@@ -290,7 +290,7 @@ export default function App() {
                   type="text"
                   value={profile.publisherName}
                   onChange={(e) => updateProfile('publisherName', e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
               </div>
               <div>
@@ -299,7 +299,7 @@ export default function App() {
                   type="text"
                   value={profile.publisherIpi}
                   onChange={(e) => updateProfile('publisherIpi', e.target.value.replace(/\D/g, '').slice(0, 11))}
-                  className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent font-mono ${
+                  className={`w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent font-mono ${
                     profile.publisherIpi && (profile.publisherIpi.length < 9 || profile.publisherIpi.length > 11) 
                       ? 'border-red-300' 
                       : 'border-gray-300'
@@ -316,7 +316,7 @@ export default function App() {
           <button
             onClick={() => setScreen(SCREENS.RELEASE_VIEW)}
             disabled={!isProfileComplete()}
-            className="w-full py-3 px-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-xl font-medium hover:from-violet-700 hover:to-fuchsia-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+            className="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-6"
           >
             Continue to Release
           </button>
@@ -326,22 +326,22 @@ export default function App() {
   );
 
   const renderReleaseView = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center text-white font-bold">
               {profile.songwriterName.charAt(0)}
             </div>
             <div>
-              <div className="text-white font-medium">{profile.songwriterName}</div>
-              <div className="text-slate-400 text-sm">{profile.pro} {profile.ipi && `• ${profile.ipi}`}</div>
+              <div className="text-gray-900 font-medium">{profile.songwriterName}</div>
+              <div className="text-gray-500 text-sm">{profile.pro} {profile.ipi && `• ${profile.ipi}`}</div>
             </div>
           </div>
           <button
             onClick={() => setScreen(SCREENS.PROFILE_SETUP)}
-            className="text-slate-400 hover:text-white text-sm"
+            className="text-gray-500 hover:text-gray-700 text-sm"
           >
             Edit Profile
           </button>
@@ -350,43 +350,43 @@ export default function App() {
         {/* Release Card */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* Release Header */}
-          <div className="bg-gradient-to-r from-slate-800 to-slate-700 p-6">
+          <div className="bg-white border-b p-6">
             <div className="flex items-start gap-6">
-              <div className="w-32 h-32 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center">
+              <div className="w-32 h-32 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center">
                 <svg className="w-12 h-12 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
               </div>
               <div className="flex-1">
-                <div className="text-slate-400 text-sm">{mockRelease.label}</div>
-                <h1 className="text-2xl font-bold text-white mt-1">{mockRelease.title}</h1>
-                <div className="text-slate-300 mt-1">{mockRelease.artist}</div>
+                <div className="text-gray-500 text-sm">{mockRelease.label}</div>
+                <h1 className="text-2xl font-bold text-gray-900 mt-1">{mockRelease.title}</h1>
+                <div className="text-gray-600 mt-1">{mockRelease.artist}</div>
                 <div className="flex items-center gap-4 mt-4">
-                  <span className="text-slate-400 text-sm">{mockRelease.tracks.length} tracks</span>
-                  <span className="text-slate-400 text-sm">Release: {mockRelease.release_date}</span>
+                  <span className="text-gray-500 text-sm">{mockRelease.tracks.length} tracks</span>
+                  <span className="text-gray-500 text-sm">Release: {mockRelease.release_date}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Publishing Status Banner */}
-          <div className="bg-violet-50 border-b border-violet-100 px-6 py-4">
+          <div className="bg-pink-50 border-b border-pink-100 px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-medium text-violet-900">Publishing Registration</div>
-                  <div className="text-sm text-violet-600">{getCompletedCount()} of {mockRelease.tracks.length} tracks ready</div>
+                  <div className="font-medium text-pink-900">Publishing Registration</div>
+                  <div className="text-sm text-pink-600">{getCompletedCount()} of {mockRelease.tracks.length} tracks ready</div>
                 </div>
               </div>
               {getCompletedCount() > 0 && (
                 <button
                   onClick={() => setScreen(SCREENS.EXPORT_VIEW)}
-                  className="px-4 py-2 bg-violet-600 text-white rounded-lg text-sm font-medium hover:bg-violet-700 transition-colors"
+                  className="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition-colors"
                 >
                   View & Export
                 </button>
@@ -396,15 +396,15 @@ export default function App() {
 
           {/* Bulk Action */}
           {getCompletedCount() === 0 && (
-            <div className="px-6 py-4 border-b bg-violet-50">
+            <div className="px-6 py-4 border-b bg-pink-50">
               <div className="flex items-center gap-4">
                 <div className="flex-1">
-                  <div className="font-medium text-violet-900">Same writers for all tracks?</div>
-                  <div className="text-sm text-violet-600">Save time by entering details once</div>
+                  <div className="font-medium text-pink-900">Same writers for all tracks?</div>
+                  <div className="text-sm text-pink-600">Save time by entering details once</div>
                 </div>
                 <button
                   onClick={() => startCapture(0, 'same')}
-                  className="px-4 py-2 bg-violet-600 text-white rounded-lg text-sm font-medium hover:bg-violet-700 transition-colors whitespace-nowrap"
+                  className="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition-colors whitespace-nowrap"
                 >
                   Yes, apply to all
                 </button>
@@ -438,7 +438,7 @@ export default function App() {
                     ) : (
                       <button
                         onClick={() => startCapture(index, 'different')}
-                        className="px-3 py-1 border border-violet-300 text-violet-600 rounded-full text-sm hover:bg-violet-50 transition-colors"
+                        className="px-3 py-1 border border-pink-300 text-pink-600 rounded-full text-sm hover:bg-pink-50 transition-colors"
                       >
                         Add Publishing
                       </button>
@@ -561,7 +561,7 @@ export default function App() {
 
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-medium">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center text-white font-medium">
                     {profile.songwriterName.charAt(0)}
                   </div>
                   <div>
@@ -580,15 +580,16 @@ export default function App() {
                     value={captureFormData.ownershipSplit}
                     onChange={(e) => {
                       // Allow digits, single decimal point or comma, up to 3 decimal places
-                      const value = e.target.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1');
-                      const normalized = value.replace(',', '.');
-                      const parts = normalized.split('.');
+                      let value = e.target.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1');
+                      // Normalize comma to period for display
+                      value = value.replace(',', '.');
+                      const parts = value.split('.');
                       if (parts[1] && parts[1].length > 3) return; // Max 3 decimal places
-                      const num = parseFloat(normalized);
-                      if (normalized && !isNaN(num) && num > 100) return; // Max 100
+                      const num = parseFloat(value);
+                      if (value && !isNaN(num) && num > 100) return; // Max 100
                       updateCaptureField('ownershipSplit', value);
                     }}
-                    className="w-24 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-transparent text-center text-xl font-medium"
+                    className="w-24 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent text-center text-xl font-medium"
                     placeholder="100"
                   />
                   <span className="text-xl text-gray-500">%</span>
@@ -748,12 +749,13 @@ export default function App() {
                             inputMode="decimal"
                             value={captureFormData.coWriters[i].split}
                             onChange={(e) => {
-                              const value = e.target.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1');
-                              const normalized = value.replace(',', '.');
-                              const parts = normalized.split('.');
+                              let value = e.target.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1');
+                              // Normalize comma to period for display
+                              value = value.replace(',', '.');
+                              const parts = value.split('.');
                               if (parts[1] && parts[1].length > 3) return;
-                              const num = parseFloat(normalized);
-                              if (normalized && !isNaN(num) && num > 100) return;
+                              const num = parseFloat(value);
+                              if (value && !isNaN(num) && num > 100) return;
                               updateCoWriter(i, 'split', value);
                             }}
                             className="w-full p-2 border border-gray-300 rounded-lg text-sm"
@@ -801,7 +803,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => updateCaptureField('hasSamples', true)}
-                  className={`p-4 rounded-xl border-2 transition-all ${captureFormData.hasSamples ? 'border-violet-500 bg-violet-50' : 'border-gray-200 hover:border-gray-300'}`}
+                  className={`p-4 rounded-xl border-2 transition-all ${captureFormData.hasSamples ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-gray-300'}`}
                 >
                   <span className="font-medium">Yes</span>
                 </button>
@@ -865,15 +867,15 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-violet-50 rounded-xl p-4 border border-violet-200">
-                <p className="text-sm text-violet-900">
+              <div className="bg-pink-50 rounded-xl p-4 border border-pink-200">
+                <p className="text-sm text-pink-900">
                   I confirm this information is accurate and authorize the registration of {bulkMode === 'same' ? 'these compositions' : 'this composition'} with collection societies.
                 </p>
               </div>
 
               <button
                 onClick={saveAndContinue}
-                className="w-full py-3 px-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-xl font-medium hover:from-violet-700 hover:to-fuchsia-700 transition-all"
+                className="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all"
               >
                 {bulkMode === 'same' ? `Submit All ${mockRelease.tracks.length} Tracks` : 'Submit'}
               </button>
@@ -886,7 +888,7 @@ export default function App() {
     };
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-violet-50 to-fuchsia-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-xl p-6 max-w-md w-full relative">
           {captureStep > 0 && (
             <div className="mb-6">
@@ -904,7 +906,7 @@ export default function App() {
                 </button>
               </div>
               <div className="h-1 bg-gray-200 rounded-full">
-                <div className="h-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full transition-all" style={{ width: `${((captureStep + 1) / 5) * 100}%` }} />
+                <div className="h-1 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full transition-all" style={{ width: `${((captureStep + 1) / 5) * 100}%` }} />
               </div>
             </div>
           )}
@@ -922,11 +924,11 @@ export default function App() {
   };
 
   const renderExportView = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         <button
           onClick={() => setScreen(SCREENS.RELEASE_VIEW)}
-          className="flex items-center gap-2 text-slate-400 hover:text-white mb-6"
+          className="flex items-center gap-2 text-gray-500 hover:text-gray-700 mb-6"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -943,7 +945,7 @@ export default function App() {
               </div>
               <button
                 onClick={exportToCSV}
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white rounded-xl font-medium hover:from-violet-700 hover:to-fuchsia-700 transition-all"
+                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl font-medium hover:from-pink-700 hover:to-fuchsia-700 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
